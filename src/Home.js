@@ -41,7 +41,7 @@ const Home = ({navigation}) => {
       <View style={styles.buttonContainer}>
         <Image
           style={styles.image1}
-          source={require('/home/divum/projects/ReactNative/React_Project/android/assets/twitter-png.gif')}></Image>
+          source={require('/home/divum/projects/ReactNative/React_Project/assets/twitter-png.gif')}></Image>
         <TouchableOpacity
           style={styles.Button}
           onPress={() => navigation.navigate('Lable', {screen: 'Lable'})}>
