@@ -14,7 +14,7 @@ const Splashs = ({navigation}) => {
           <View style={styles.logo}>
             <Image
               style={styles.img}
-              source={require('/home/divum/projects/ReactNative/Hospital_Managment/android/assets/61e6788d9e62865a199da67a_Social-Media.gif')}></Image>
+              source={require('/home/divum/projects/ReactNative/React_Project/android/assets/61e6788d9e62865a199da67a_Social-Media.gif')}></Image>
           </View>
         </View>
       </View>

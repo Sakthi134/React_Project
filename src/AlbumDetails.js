@@ -2,14 +2,13 @@ import React, {useState, useEffect} from 'react';
 import {
   View,
   StyleSheet,
-  FlatList,
   StatusBar,
   Image,
   Text,
   TouchableOpacity,
 } from 'react-native';
 import axios from 'axios';
-
+import { FlashList } from '@shopify/flash-list';
 const AlbumDetails = ({route, navigation}) => {
   const [image, setImage] = useState([]);
   let id = route.params.paramKey;
@@ -33,18 +32,34 @@ const AlbumDetails = ({route, navigation}) => {
     );
   };
 
-  return (
-    <View style={styles.containerFlate}>
-      <View style={styles.innerContainer}>
-        <Text style={{fontSize: 20, fontWeight: 'bold'}}>
-          PHOTOS: {image.length}
-        </Text>
-        <FlatList data={image} renderItem={renderItem} numColumns={2} />
-        <StatusBar />
-      </View>
-    </View>
-  );
+//   return (
+//     <View style={{flex:1, width:'100%', height:'100%'}} >
+//     <View style={styles.containerFlate}>
+//       <View style={styles.innerContainer}>
+//         <Text style={{fontSize: 20, fontWeight: 'bold'}}>
+//           PHOTOS: {image.length}
+//         </Text>
+//         <FlashList data={image} renderItem={renderItem} numColumns={2} estimatedItemSize = {200} />
+//         <StatusBar />
+//       </View>
+//     </View>
+//     </View>
+//   );
+// };
+return (
+  <View style={{flex:1, width:'100%', height:'100%'}}>
+    <FlashList
+      data={image}
+      renderItem={renderItem}
+      keyExtractor={item => item.id}
+      numColumns={2}
+      estimatedItemSize={200}
+    />
+    <StatusBar />
+  </View>
+);
 };
+
 
 const styles = StyleSheet.create({
   flex: {

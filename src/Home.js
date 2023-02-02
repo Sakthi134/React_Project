@@ -1,36 +1,47 @@
-import React,{useEffect} from 'react';
-import {View, Text, StyleSheet, TouchableOpacity, Image,BackHandler,Alert} from 'react-native';
+import React, {useCallback} from 'react';
+import {
+  View,
+  Text,
+  StyleSheet,
+  TouchableOpacity,
+  Image,
+  BackHandler,
+  Alert,
+} from 'react-native';
+import {useFocusEffect} from '@react-navigation/native';
 
 const Home = ({navigation}) => {
-  useEffect (() => {
-    const backAction = () => {
-      Alert.alert("Stop", "Are you want to go exit the app",[
-        {
-          text:"Cancel",
-          onPress:()=>null,
-          style:"cancel"
-        },
-        {
-          text:"Yes",
-          onPress:()=>BackHandler.exitApp()
-        }
-      ]);
-      return true;
-    }
-  
-    const backHandler = BackHandler.addEventListener(
-      "hardwareBackPress",
-      backAction
-    );
-  
-    return () => backHandler.remove();
-  },[])
+  useFocusEffect(
+    useCallback(() => {
+      const backAction = () => {
+        Alert.alert('Stop', 'Are you want to go exit the app', [
+          {
+            text: 'Cancel',
+            onPress: () => null,
+            style: 'cancel',
+          },
+          {
+            text: 'Yes',
+            onPress: () => BackHandler.exitApp(),
+          },
+        ]);
+        return true;
+      };
+
+      const backHandler = BackHandler.addEventListener(
+        'hardwareBackPress',
+        backAction,
+      );
+
+      return () => backHandler.remove();
+    }, []),
+  );
   return (
     <View style={styles.topContainer}>
       <View style={styles.buttonContainer}>
         <Image
           style={styles.image1}
-          source={require('/home/divum/projects/ReactNative/Hospital_Managment/android/assets/twitter-png.gif')}></Image>
+          source={require('/home/divum/projects/ReactNative/React_Project/android/assets/twitter-png.gif')}></Image>
         <TouchableOpacity
           style={styles.Button}
           onPress={() => navigation.navigate('Lable')}>
@@ -43,7 +54,7 @@ const Home = ({navigation}) => {
         </TouchableOpacity>
         <Image
           style={styles.image}
-          source={require('/home/divum/projects/ReactNative/Hospital_Managment/android/assets/social.gif')}></Image>
+          source={require('/home/divum/projects/ReactNative/React_Project/android/assets/social.gif')}></Image>
       </View>
     </View>
   );
@@ -80,7 +91,7 @@ const styles = StyleSheet.create({
   image: {
     width: 250,
     height: 200,
-    marginTop: 221,
+    marginTop: 247,
     marginHorizontal: -200,
   },
   image1: {

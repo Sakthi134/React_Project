@@ -2,13 +2,13 @@ import React from 'react';
 
 import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
-import Splashs from './android/src/Splashs';
-import Home from './android/src/Home';
-import Lable from './android/src/Lable';
-import Post from './android/src/Post';
-import Album from './android/src/Album';
-import AlbumDetails from './android/src/AlbumDetails';
-import Zoom from './android/src/Zoom';
+import Splashs from './src/Splashs';
+import Home from './src/Home';
+import Lable from './src/Lable';
+import Post from './src/Post';
+import Album from './src/Album';
+import AlbumDetails from './src/AlbumDetails';
+import Zoom from './src/Zoom';
 
 const Stack = createStackNavigator();
 const App = () => {

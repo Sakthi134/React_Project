@@ -8,6 +8,7 @@ import {
   FlatList,
   Pressable,
 } from 'react-native';
+import { FlashList } from '@shopify/flash-list';
 
 const Lable = ({navigation}) => {
   const [data, setData] = useState([]);
@@ -44,11 +45,12 @@ const Lable = ({navigation}) => {
   };
 
   return (
-    <View style={styles.container}>
-      <FlatList
+    <View style={{flex:1, width:'100%', height:'100%'}}>
+      <FlashList
         data={data}
         renderItem={renderItem}
         keyExtractor={item => item.id}
+        estimatedItemSize = {200}
       />
       <StatusBar />
     </View>

@@ -5,10 +5,9 @@ import {
   Text,
   View,
   StatusBar,
-  FlatList,
   Pressable,
 } from 'react-native';
-
+import { FlashList } from '@shopify/flash-list';
 const Album = ({navigation}) => {
   const [data, setData] = useState([]);
   useEffect(() => {
@@ -46,12 +45,13 @@ const Album = ({navigation}) => {
   };
 
   return (
-    <View style={styles.container}>
-      <FlatList
+    <View style={{flex:1, width:'100%', height:'100%'}}>
+      <FlashList
         data={data}
         renderItem={renderItem}
         keyExtractor={item => item.id}
         numColumns={2}
+        estimatedItemSize={200}
       />
       <StatusBar />
     </View>
@@ -74,14 +74,6 @@ const styles = StyleSheet.create({
     },
     shadowRadius: 8,
     width: 150,
-  },
-  buttonStyle: {
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#DDDDDD',
-    padding: 10,
-    width: '100%',
-    marginTop: 400,
   },
   innerContainer: {
     flex: 1,

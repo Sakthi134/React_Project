@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import {View, StyleSheet, Text, FlatList, StatusBar} from 'react-native';
 import axios from 'axios';
+import { FlashList } from '@shopify/flash-list';
 const Post = ({route}) => {
   const [dataById, setDataById] = useState([]);
   const [commentById, setCommentById] = useState([]);
@@ -63,11 +64,12 @@ const Post = ({route}) => {
           COMMENTS ( {commentById.length} )
         </Text>
 
-        <FlatList
+        <FlashList
           //horizontal={true}
           data={commentById}
           renderItem={renderItem}
           keyExtractor={item => item.id}
+          estimatedItemSize = {200}
         />
         <StatusBar />
       </View>
