@@ -1,13 +1,15 @@
 import React, {useState} from 'react';
 import {StyleSheet, View, Image} from 'react-native';
+import { useNavigation } from '@react-navigation/native';
 
-const Splashs = ({navigation}) => {
+const Splashs = () => {
   const [timePassed, setTimePassed] = useState(false);
-
+  const navigation = useNavigation();
   setTimeout(function () {
     setTimePassed(true);
   }, 2500);
   if (!timePassed) {
+    console.log(!timePassed);
     return (
       <View style={styles.main}>
         <View style={styles.splash}>
@@ -18,10 +20,11 @@ const Splashs = ({navigation}) => {
           </View>
         </View>
       </View>
+      
     );
   }
-  navigation.navigate('Home');
-  return null;
+  navigation.navigate("Home",{screen: "Home"});
+  //return null;
 };
 
 const styles = StyleSheet.create({

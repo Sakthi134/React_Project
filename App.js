@@ -19,6 +19,7 @@ const App = () => {
           name="Splashs"
           component={Splashs}
           options={{
+            gestureEnabled : false,
             title: 'Splashs',
             headerTitle: null,
             headerShown: false,
