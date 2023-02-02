@@ -9,7 +9,7 @@ const Splashs = () => {
     setTimePassed(true);
   }, 2500);
   if (!timePassed) {
-    console.log(!timePassed);
+    //console.log(!timePassed);
     return (
       <View style={styles.main}>
         <View style={styles.splash}>
