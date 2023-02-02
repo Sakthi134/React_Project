@@ -44,12 +44,12 @@ const Home = ({navigation}) => {
           source={require('/home/divum/projects/ReactNative/React_Project/android/assets/twitter-png.gif')}></Image>
         <TouchableOpacity
           style={styles.Button}
-          onPress={() => navigation.navigate("Lable",{screen: "Lable"})}>
+          onPress={() => navigation.navigate('Lable', {screen: 'Lable'})}>
           <Text style={styles.text}>POST</Text>
         </TouchableOpacity>
         <TouchableOpacity
           style={styles.Button}
-          onPress={() => navigation.navigate("Album",{screen: "Album"})}>
+          onPress={() => navigation.navigate('Album', {screen: 'Album'})}>
           <Text style={styles.text}>ALBUM</Text>
         </TouchableOpacity>
         <Image
