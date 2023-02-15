@@ -3,6 +3,7 @@ import React from 'react';
 import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
 import Splashs from './src/Splashs';
+import Login from './src/Login';
 import Home from './src/Home';
 import Lable from './src/Lable';
 import Post from './src/Post';
@@ -15,12 +16,29 @@ const App = () => {
   return (
     <NavigationContainer>
       <Stack.Navigator>
-        <Stack.Screen
+      <Stack.Screen
           name="Splashs"
           component={Splashs}
           options={{
             gestureEnabled : false,
             title: 'Splashs',
+            headerTitle: null,
+            headerShown: false,
+            headerStyle: {
+              backgroundColor: '#68c71a',
+            },
+            headerTintColor: 'white',
+            headerTitleStyle: {
+              fontWeight: 'bold',
+            },
+          }}
+        />
+        <Stack.Screen
+          name="Login"
+          component={Login}
+          options={{
+            gestureEnabled : false,
+            title: 'Login',
             headerTitle: null,
             headerShown: false,
             headerStyle: {

@@ -23,7 +23,7 @@ const Splashs = () => {
       
     );
   }
-  navigation.navigate("Home",{screen: "Home"});
+  navigation.navigate("Login",{screen: "Login"});
   //return null;
 };
 

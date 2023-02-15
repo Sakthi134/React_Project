@@ -1,60 +1,38 @@
-import React, {useCallback} from 'react';
+import React from 'react';
 import {
   View,
   Text,
   StyleSheet,
-  TouchableOpacity,
+  TextInput,
   Image,
   BackHandler,
   Alert,
+  TouchableOpacity
 } from 'react-native';
-import {useFocusEffect} from '@react-navigation/native';
 
-const Home = ({navigation}) => {
-  useFocusEffect(
-    useCallback(() => {
-      const backAction = () => {
-        Alert.alert('Stop', 'Are you want to go exit the app', [
-          {
-            text: 'Cancel',
-            onPress: () => null,
-            style: 'cancel',
-          },
-          {
-            text: 'Yes',
-            onPress: () => BackHandler.exitApp(),
-          },
-        ]);
-        return true;
-      };
-
-      const backHandler = BackHandler.addEventListener(
-        'hardwareBackPress',
-        backAction,
-      );
-
-      return () => backHandler.remove();
-    }, []),
-  );
+const Login = ({navigation}) => {
   return (
     <View style={styles.topContainer}>
-      <View style={styles.buttonContainer}>
+      {/* <View style={styles.buttonContainer}> */}
         <Image
           style={styles.image1}
           source={require('/home/divum/projects/ReactNative/React_Project/android/assets/twitter-png.gif')}></Image>
+        <TextInput style={styles.Button}>
+          username
+        </TextInput>
+        <TextInput>
+          <Text style={styles.text}>Password</Text>
+        </TextInput>
         <TouchableOpacity
           style={styles.Button}
-          onPress={() => navigation.navigate('Lable', {screen: 'Lable'})}>
+          onPress={() => navigation.navigate('Home', {screen: 'Home'})}>
           <Text style={styles.text}>POST</Text>
         </TouchableOpacity>
-        <TouchableOpacity
-          style={styles.Button}
-          onPress={() => navigation.navigate('Album', {screen: 'Album'})}>
-          <Text style={styles.text}>ALBUM</Text>
-        </TouchableOpacity>
-        
+        <Image
+          style={styles.image}
+          source={require('/home/divum/projects/ReactNative/React_Project/android/assets/social.gif')}></Image>
       </View>
-    </View>
+    // </View>
   );
 };
 
@@ -101,4 +79,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default Home;
+export default Login;
